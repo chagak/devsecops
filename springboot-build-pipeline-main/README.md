@@ -64,6 +64,7 @@ $ sudo docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 ## Step 4: Add necessary credentials
 - [ ] Generate Sonarqube token of type "global analysis token" and add it as Jenkins credential of type "secret text"
 - [ ] Add dockerhub credentials as username/password type
+- [ ] Add AWS credentials if you want to used ECR
 - [ ] Add Gitlab credentials 
 - [ ] Add Build server credentials for Jenkins master to connect
 
