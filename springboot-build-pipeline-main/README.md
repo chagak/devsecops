@@ -26,29 +26,32 @@
 ## On the build Sewrver
 
 ## Step 2: Install Docker, Java8, Java11 & Trivy on Build Server
-```
-$ sudo ./setup.sh
-```
-or 
-...........
-        # Ensure script is run with root privileges
-        if [ "$EUID" -ne 0 ]; then
-        echo "Please run this script as root or sudo privileges "
-        exit 1
-        fi
+        ## Make the file executable
+        $ chmod +x setup.sh 
+
+        ```
+        $ sudo ./setup.sh
+        ```
+        or 
+        ...........
+                # Ensure script is run with root privileges
+                if [ "$EUID" -ne 0 ]; then
+                echo "Please run this script as root or sudo privileges "
+                exit 1
+                fi
 
 
-        # Install Java 8, Java 11 & Docker
-        apt update
-        apt install -y openjdk-8-jdk openjdk-11-jdk docker.io maven
-        usermod -a -G docker ubuntu
+                # Install Java 8, Java 11 & Docker
+                apt update
+                apt install -y openjdk-8-jdk openjdk-11-jdk docker.io maven
+                usermod -a -G docker ubuntu
 
-        # Install Trivy
-        wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
-        echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
-        apt update
-        apt install -y trivy
-        .......
+                # Install Trivy
+                wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | sudo apt-key add -
+                echo deb https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main | sudo tee -a /etc/apt/sources.list.d/trivy.list
+                apt update
+                apt install -y trivy
+                .......
 
 ## Step 3: Install Sonrqube on the t2.medium server
 ```
