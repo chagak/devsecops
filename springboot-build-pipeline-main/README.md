@@ -66,6 +66,12 @@ $ sudo docker run -d --name sonar -p 9000:9000 sonarqube:lts-community
 - [ ] Add dockerhub credentials as username/password type
 - [ ] Add Gitlab credentials 
 - [ ] Add Build server credentials for Jenkins master to connect
+- [ ] Check if the buid server is successfully connected 
+## use the latest java version for the build server
+    sudo apt update
+    sudo apt install openjdk-17-jdk -y
+    Restart the server.
+
 
 ## Step 5: Enable Sonarqube webhook for Quality Gates & Install dependency-check plugin
 - [ ] Generate webhook & add the Jenkins URL as follows - http://URL:8080/sonarqube-webhook/
