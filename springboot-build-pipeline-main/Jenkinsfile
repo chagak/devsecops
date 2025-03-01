@@ -9,7 +9,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git branch: 'main', credentialsId: 'GithubCred', url: 'https://github.com/chagak/devsecops/tree/main/springboot-build-pipeline-main.git'
+        git branch: 'main', credentialsId: 'GithubCred', url: 'https://github.com/chagak/devsecops.git'
       }
     }
   
