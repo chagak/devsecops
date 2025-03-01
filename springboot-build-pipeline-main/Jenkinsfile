@@ -9,14 +9,24 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
+        cleanWs() // Cleans workspace before checkout
         git branch: 'main', credentialsId: 'GithubCred', url: 'https://github.com/chagak/devsecops.git'
       }
     }
-  
-   stage('Stage I: Build') {
+    stage('Debug Workspace') {
+      steps {
+        sh 'ls -la' // List files to verify pom.xml presence
+      }
+    }
+
+    stage('Stage I: Build') {
       steps {
         echo "Building Jar Component ..."
-        sh "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64; mvn clean package "
+        sh """
+         export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+         mvn  -f pom.xml clean package 
+         
+         """
       }
     }
 
