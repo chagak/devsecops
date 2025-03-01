@@ -13,12 +13,12 @@ pipeline {
       }
     }
   
-  //  stage('Stage I: Build') {
-  //     steps {
-  //       echo "Building Jar Component ..."
-  //       sh "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64; mvn clean package "
-  //     }
-  //   }
+   stage('Stage I: Build') {
+      steps {
+        echo "Building Jar Component ..."
+        sh "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64; mvn clean package "
+      }
+    }
 
   //  stage('Stage II: Code Coverage ') {
   //     steps {
