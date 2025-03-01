@@ -35,7 +35,13 @@ pipeline {
    stage('Stage II: Code Coverage ') {
       steps {
 	    echo "Running Code Coverage ..."
-        sh "export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64; mvn jacoco:report"
+        sh """
+          export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+          cd springboot-build-pipeline-main || exit 1
+          ls -la  # Verify pom.xml exists
+          mvn jacoco:report
+          
+          """
       }
     }
 
