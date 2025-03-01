@@ -15,7 +15,7 @@ pipeline {
     }
     stage('Debug Workspace') {
       steps {
-        sh 'ls -la' // List files to verify pom.xml presence
+        sh 'pwd && ls -la' // Check current directory and list files
       }
     }
 
@@ -24,7 +24,9 @@ pipeline {
         echo "Building Jar Component ..."
         sh """
          export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-         mvn  -f pom.xml clean package 
+         cd springboot-build-pipeline-main || exit 1
+         ls -la  # Verify pom.xml exists
+         mvn clean package
          
          """
       }
