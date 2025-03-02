@@ -64,6 +64,8 @@ pipeline {
         echo "Running Static application security testing using SonarQube Scanner ..."
         withSonarQubeEnv('mysonarqube') {
             sh """
+            cd springboot-build-pipeline-main || exit 1
+            ls -la  # Verify pom.xml exists
             mvn sonar:sonar 
             -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml 
             -Dsonar.dependencyCheck.jsonReportPath=target/dependency-check-report.json 
