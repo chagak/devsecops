@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.myapp</groupId>
-    <artifactId>wezvatech-demo</artifactId>
+    <artifactId>chaganoteSonarProject</artifactId>
     <version>9739110917</version>
     <packaging>jar</packaging>
 
